@@ -7,6 +7,6 @@
     <title>SWAG</title>
 </head>
 <body>
-    <h1 th:text="${name} + ' Kalmars'"></h1>
+    <h1 th:text="${name} + (${surname} ? ' ' + ${surname} : '')"></h1>
 </body>
 </html>
