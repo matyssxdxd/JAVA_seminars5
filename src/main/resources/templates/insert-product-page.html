@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Product</title>
+    <style>
+        body {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 400px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Please, insert product.</p>
+        <form action="#" th:action="@{/product/insert}" th:object="${product}" th:method="post">
+            <input id="title" type="text" th:field="*{title}" placeholder="Title">
+            <p class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+            <textarea id="description" type="text" th:field="*{description}" placeholder="Description"></textarea>
+            <p class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+            <input id="price" type="text" th:field="*{price}" placeholder="Price">
+            <p class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>
+            <input id="quantity" type="text" th:field="*{quantity}" placeholder="Quantity">
+            <p class="error" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></p>
+            <button type="submit">Submit</button>
+        </form>
+        <a href="/product">Back...</a>
+    </div>
+</body>
+</html>
