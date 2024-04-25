@@ -37,9 +37,36 @@
             background-color: #beffc0;
         }
 
+        .delete-btn {
+            color: black;
+            text-decoration: none;
+            background-color: red;
+            padding: 5px 10px;
+            transition: 0.1s ease-in-out;
+        }
+
+        .delete-btn:hover {
+            color: white;
+            background-color: #4CAF50;
+        }
+
+        .update-btn {
+            color: black;
+            text-decoration: none;
+            background-color: deepskyblue;
+            padding: 5px 10px;
+            transition: 0.1s ease-in-out;
+        }
+
+        .update-btn:hover {
+            color: white;
+            background-color: #4CAF50;
+        }
+
     </style>
 </head>
 <body>
+<h1 th:text="${title}"></h1>
 <table>
     <thead>
     <tr>
@@ -48,6 +75,8 @@
         <th>Description</th>
         <th>Price ($)</th>
         <th>Quantity</th>
+        <th>Delete</th>
+        <th>Update</th>
     </tr>
     </thead>
     <tbody>
@@ -57,6 +86,8 @@
         <td th:text="${product.getDescription()}"></td>
         <td th:text="${product.getPrice()}"></td>
         <td th:text="${product.getQuantity()}"></td>
+        <td><a class="delete-btn" th:href="'/product/delete?id=' + ${product.getId()}">X</a></td>
+        <td><a class="update-btn" th:href="'/product/update?id=' + ${product.getId()}">X</a></td>
     </tr>
     </tbody>
 </table>

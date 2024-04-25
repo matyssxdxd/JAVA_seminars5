@@ -61,20 +61,20 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <p>Please, insert product.</p>
-        <form action="#" th:action="@{/product/insert}" th:object="${product}" th:method="post">
-            <input id="title" type="text" th:field="*{title}" placeholder="Title">
-            <p class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
-            <textarea id="description" type="text" th:field="*{description}" placeholder="Description"></textarea>
-            <p class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
-            <input id="price" type="text" th:field="*{price}" placeholder="Price">
-            <p class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>
-            <input id="quantity" type="text" th:field="*{quantity}" placeholder="Quantity">
-            <p class="error" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></p>
-            <button type="submit">Submit</button>
-        </form>
-        <a href="/product">Back...</a>
-    </div>
+<div class="container">
+    <p>Please, update product.</p>
+    <form action="#" th:action="@{/product/update?id=__${id}__}" th:object="${product}" th:method="post">
+        <input id="title" type="text" th:field="*{title}" placeholder="Title">
+        <p class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+        <textarea id="description" type="text" th:field="*{description}" placeholder="Description"></textarea>
+        <p class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+        <input id="price" type="text" th:field="*{price}" placeholder="Price">
+        <p class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>
+        <input id="quantity" type="text" th:field="*{quantity}" placeholder="Quantity">
+        <p class="error" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></p>
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/product">Back...</a>
+</div>
 </body>
 </html>

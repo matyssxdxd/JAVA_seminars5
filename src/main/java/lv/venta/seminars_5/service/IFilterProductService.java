@@ -9,4 +9,5 @@ public interface IFilterProductService {
     public abstract ArrayList<Product> filterProduct(float price) throws Exception;
     public abstract ArrayList<Product> filterProductByQuantityThreshold(int quantityThreshold) throws Exception;
     public abstract ArrayList<Product> filterByTitleOrDescription(String searchText) throws Exception;
+    public abstract float calculateTotalProductValue() throws Exception;
 }
