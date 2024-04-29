@@ -20,18 +20,15 @@ public class ProductServiceImpl implements ICRUDProductService, IFilterProductSe
     public Product createProduct(Product product) throws Exception {
         if (product == null) throw new Exception("There is no products provided.");
 
-        for (Product tempP : allProducts) {
-            if (tempP.getTitle().equals(product.getTitle()) &&
-                    tempP.getDescription().equals(product.getDescription()) &&
-                    tempP.getPrice() == product.getPrice()) {
-                tempP.setQuantity(tempP.getQuantity() + product.getQuantity());
-                return tempP;
-            }
+        Product productFromDB = productRepo.findByTitleAndDescriptionAndPrice(product.getTitle(),
+                product.getDescription(), product.getPrice());
+
+        if (productFromDB != null) {
+            productFromDB.setQuantity(productFromDB.getQuantity() + product.getQuantity());
+            return productRepo.save(productFromDB);
         }
 
-        Product newProduct = new Product(product.getTitle(), product.getDescription(), product.getPrice(), product.getQuantity());
-        allProducts.add(newProduct);
-        return newProduct;
+        return productRepo.save(product);
     }
 
     @Override
