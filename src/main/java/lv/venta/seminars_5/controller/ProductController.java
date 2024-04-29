@@ -3,7 +3,6 @@ package lv.venta.seminars_5.controller;
 import jakarta.validation.Valid;
 import lv.venta.seminars_5.model.Product;
 import lv.venta.seminars_5.service.ICRUDProductService;
-import lv.venta.seminars_5.service.IFilterProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
