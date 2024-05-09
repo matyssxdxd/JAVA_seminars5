@@ -82,7 +82,7 @@ public class ProductServiceImpl implements ICRUDProductService, IFilterProductSe
     public ArrayList<Product> filterByTitleOrDescription(String searchText) throws Exception {
         if(searchText == null) throw new Exception("Wrong search text");
 
-        return productRepo.findByTitleLikeIgnoreCaseOrDescriptionLikeIgnoreCase(searchText, searchText);
+        return productRepo.findByTitleIgnoreCaseContainingOrDescriptionIgnoreCaseContaining(searchText, searchText);
     }
 
     @Override
